@@ -28,10 +28,6 @@ class MovieWatchingSimulation:
     def watchlist(self) -> WatchList:
         return self.__watchlist
 
-    @property
-    def reviews(self) -> list:
-        return self.__reviews
-
     def add_user(self, user):
         if type(user) is User:
             self.__users.append(user)
@@ -39,7 +35,8 @@ class MovieWatchingSimulation:
     def watchMovie(self, index):
         movie = self.__watchlist.select_movie_to_watch(index)
         self.__watchlist.remove_movie(movie)
-        self.__watchedMovies.append(movie)
+        if movie != None:
+            self.__watchedMovies.append(movie)
 
     def add_review(self, review):
         if type(review) is Review:
