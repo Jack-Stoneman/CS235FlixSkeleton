@@ -57,6 +57,12 @@ def test_iteration():
     with pytest.raises(StopIteration):
         next(iterator)
 
+def test_repeated_add():
+    watchlist = WatchList()
+    watchlist.add_movie(Movie("Moana", 2016))
+    watchlist.add_movie(Movie("Moana", 2016))
+    assert watchlist.size() == 1
+
 
 
 

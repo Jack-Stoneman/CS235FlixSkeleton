@@ -8,7 +8,8 @@ class WatchList:
 
     def add_movie(self, movie):
         if type(movie) is Movie:
-            self.__watchlist.append(movie)
+            if movie not in self.__watchlist:
+                self.__watchlist.append(movie)
 
     def remove_movie(self, movie):
         try:
